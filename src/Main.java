@@ -26,6 +26,19 @@ public class Main {
                     System.out.println();
                     break;
                 case 2:
+                    System.out.println("Enter the size of array");
+                    size = sc.nextInt();
+                    array = new int[size];
+                    System.out.println("Enter the elements of the array:");
+                    for(int i = 0; i < size; i++){
+                        array[i] = sc.nextInt();
+                    }
+                    startTime = System.currentTimeMillis();
+                    double average = AverageOfArray(size, array);
+                    estimatedTime = System.currentTimeMillis() - startTime;
+                    System.out.println("The average of the array: " + average);
+                    System.out.println("The time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
                     break;
                 case 3:
                     break;
@@ -67,5 +80,28 @@ public class Main {
             }
         }
         return min; // returning the min value
+    }
+
+    /**
+     * The method calculates average value of the array elements
+     * The function is implemented by loop (for-each)
+     * Time complexity: O(n), where n is size of the array
+     * The algorithm iterates through whole array and calculates the sum of the elements
+     * then return the average value by dividing the sum by number of elements
+     *
+     * @param size The number of elements of the array
+     * @param array The set of numbers, implemented by int[] data type
+     * @return The average value of the array
+     */
+    public static double AverageOfArray(int size, int[] array){
+        if(size == 0){
+            System.out.println("Size of the array is 0");
+            return -1;
+        }
+        double sum = 0;
+        for(int element : array){
+            sum += element;
+        }
+        return sum/size;
     }
 }
