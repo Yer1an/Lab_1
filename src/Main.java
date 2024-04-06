@@ -22,6 +22,7 @@ public class Main {
                     int min = MinValOfArray(size, array);
                     double estimatedTime = System.currentTimeMillis() - startTime;
                     System.out.println("The minimum value of the array: " + min);
+                    System.out.println("Time complexity: O(n)");
                     System.out.println("The time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
                     break;
@@ -37,10 +38,19 @@ public class Main {
                     double average = AverageOfArray(size, array);
                     estimatedTime = System.currentTimeMillis() - startTime;
                     System.out.println("The average of the array: " + average);
+                    System.out.println("Time complexity: O(n)");
                     System.out.println("The time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
                     break;
                 case 3:
+                    System.out.println("Enter the number:");
+                    int number = sc.nextInt();
+                    startTime = System.currentTimeMillis();
+                    IsPrime(number);
+                    estimatedTime = System.currentTimeMillis() - startTime;
+                    System.out.println("Time complexity: O(n)");
+                    System.out.println("Time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
                     break;
                 case 4:
                     break;
@@ -103,5 +113,24 @@ public class Main {
             sum += element;
         }
         return sum/size;
+    }
+
+    /**
+     * The function determines is the number composite or prime
+     * Time complexity: O(n)
+     * The algorithm applies the loop which start from 2 till number/2 and if there exist
+     * value i by which number can be divided without remainder, then the number is composite
+     *
+     * @param number The number that need to be checked
+     */
+    public static void IsPrime(int number){
+        boolean answer = true;
+        for(int i = 2; i <= number/2; i++){
+            if(number % i == 0){
+                System.out.println("The number is composite");
+                return;
+            }
+        }
+        System.out.println("The number is prime");
     }
 }
