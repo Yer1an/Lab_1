@@ -53,6 +53,15 @@ public class Main {
                     System.out.println();
                     break;
                 case 4:
+                    System.out.println("Enter the number:");
+                    number = sc.nextInt();
+                    startTime = System.currentTimeMillis();
+                    int factorial = Factorial(number);
+                    estimatedTime = System.currentTimeMillis() - startTime;
+                    System.out.println("The factorial of the number " + number + " is " + factorial);
+                    System.out.println("Time complexity: O(n)");
+                    System.out.println("Time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
                     break;
                 case 5:
                     break;
@@ -117,7 +126,7 @@ public class Main {
 
     /**
      * The function determines is the number composite or prime
-     * Time complexity: O(n)
+     * Time complexity: O(n), where n is the given number
      * The algorithm applies the loop which start from 2 till number/2 and if there exist
      * value i by which number can be divided without remainder, then the number is composite
      *
@@ -132,5 +141,19 @@ public class Main {
             }
         }
         System.out.println("The number is prime");
+    }
+
+    /**
+     * The function calculates the factorial of the number
+     * Time complexity: O(n), where n is the given number
+     * The algorithm is recursive, iterates in the range between n and 1
+     *
+     *
+     * @param number The number of the factorial to be found
+     * @return The factorial of the given number
+     */
+    public static int Factorial(int number){
+        if(number == 0) return 1;
+        return number * Factorial(number-1);
     }
 }
