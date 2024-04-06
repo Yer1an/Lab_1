@@ -18,11 +18,10 @@ public class Main {
                     for (int i = 0; i < size; i++) {
                         array[i] = sc.nextInt();
                     }
-                    double startTime = System.currentTimeMillis();
+                    double startTime = System.nanoTime();
                     int min = MinValOfArray(size, array);
-                    double estimatedTime = System.currentTimeMillis() - startTime;
+                    double estimatedTime = (System.nanoTime() - startTime) / 1000000 ;
                     System.out.println("The minimum value of the array: " + min);
-                    System.out.println("Time complexity: O(n)");
                     System.out.println("The time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
                     break;
@@ -34,32 +33,29 @@ public class Main {
                     for(int i = 0; i < size; i++){
                         array[i] = sc.nextInt();
                     }
-                    startTime = System.currentTimeMillis();
+                    startTime = System.nanoTime();
                     double average = AverageOfArray(size, array);
-                    estimatedTime = System.currentTimeMillis() - startTime;
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000 ;
                     System.out.println("The average of the array: " + average);
-                    System.out.println("Time complexity: O(n)");
                     System.out.println("The time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
                     break;
                 case 3:
                     System.out.println("Enter the number:");
                     int number = sc.nextInt();
-                    startTime = System.currentTimeMillis();
+                    startTime = System.nanoTime();
                     IsPrime(number);
-                    estimatedTime = System.currentTimeMillis() - startTime;
-                    System.out.println("Time complexity: O(n)");
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000 ;
                     System.out.println("Time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
                     break;
                 case 4:
                     System.out.println("Enter the number:");
                     number = sc.nextInt();
-                    startTime = System.currentTimeMillis();
+                    startTime = System.nanoTime();
                     int factorial = Factorial(number);
-                    estimatedTime = System.currentTimeMillis() - startTime;
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000 ;
                     System.out.println("The factorial of the number " + number + " is " + factorial);
-                    System.out.println("Time complexity: O(n)");
                     System.out.println("Time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
                     break;
@@ -153,7 +149,7 @@ public class Main {
      * @return The factorial of the given number
      */
     public static int Factorial(int number){
-        if(number == 0) return 1;
+        if(number == 0 || number == 1) return 1;
         return number * Factorial(number-1);
     }
 }
