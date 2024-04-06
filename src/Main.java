@@ -60,6 +60,14 @@ public class Main {
                     System.out.println();
                     break;
                 case 5:
+                    System.out.println("Enter the number:");
+                    number = sc.nextInt();
+                    startTime = System.nanoTime();
+                    int fibonacci = Fibonacci(number);
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000 ;
+                    System.out.println("The " + number+"-th Fibonacci number is: " + fibonacci);
+                    System.out.println("Time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
                     break;
                 case 6:
                     break;
@@ -142,7 +150,7 @@ public class Main {
     /**
      * The function calculates the factorial of the number
      * Time complexity: O(n), where n is the given number
-     * The algorithm is recursive, iterates in the range between n and 1
+     * The algorithm is recursive, iterates in the range between number and 1
      *
      *
      * @param number The number of the factorial to be found
@@ -151,5 +159,19 @@ public class Main {
     public static int Factorial(int number){
         if(number == 0 || number == 1) return 1;
         return number * Factorial(number-1);
+    }
+
+    /**
+     * The function calculates the n-th value of fibonacci sequence
+     * Time complexity: O(2^n), where n is n-th fibonacci number
+     * The recursive algorithm, which calls itself twice in one iteration,
+     * with exponential time complexity
+     *
+     * @param n The number of the fibonacci value to be found
+     * @return The n-th fibonacci number
+     */
+    public static int Fibonacci(int n){
+        if(n <= 1) return n;
+        return Fibonacci(n-1) + Fibonacci(n - 2);
     }
 }
