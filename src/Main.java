@@ -82,6 +82,20 @@ public class Main {
                     System.out.println();
                     break;
                 case 7:
+                    System.out.println("Enter the size of the array");
+                    size = sc.nextInt();
+                    array = new int[size];
+                    System.out.println("Enter the elements of the array:");
+                    for(int i = 0; i < size; i++){
+                        array[i] = sc.nextInt();
+                    }
+                    System.out.println("The reversed array is:");
+                    startTime = System.nanoTime();
+                    ReverseArray(size, array, 0);
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000;
+                    System.out.println();
+                    System.out.println("Time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
                     break;
                 default:
                     break;
@@ -198,4 +212,24 @@ public class Main {
         if(n == 0) return 1;
         return a * Power(a, n-1);
     }
+
+    /**
+     * The function prints the given array in reversed form
+     * Time complexity: O(n), where n is the size of the array
+     * The recursive algorithm iterates trough array elements from 0 to n-1,
+     * resulting in linear time complexity
+     *
+     * @param n The size of the array
+     * @param array The set of numbers, implemented by int[] data type
+     * @param index The position of the array elements
+     */
+    public static void ReverseArray(int n, int[] array, int index){
+        if(index == n-1){
+            System.out.print(array[index] + " ");
+            return;
+        }
+        ReverseArray(n, array, index + 1);
+        System.out.print(array[index] + " ");
+    }
+
 }
