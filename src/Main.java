@@ -6,7 +6,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("Choose the number of algorithm or enter zero to exit: ");
+            System.out.println("Choose the number of the problem you want to check:");
+            System.out.println("#1 Minimum value of the array;");
+            System.out.println("#2 Average value of the array elements;");
+            System.out.println("#3 Check is the number prime or composite;");
+            System.out.println("#4 Factorial of the number;");
+            System.out.println("#5 The n-th element in Fibonacci sequence");
+            System.out.println("#6 The number a in n-th power");
+            System.out.println("#7 Reversed array");
+            System.out.println("#8 Is string contains only digits");
+            System.out.println("#9 Binomial Coefficient C(n,k)");
+            System.out.println("#10 The greatest common divisor of a and b");
+
+
+            System.out.println("Choose the number of algorithm ( 0 - exit ):");
             int choice = sc.nextInt();
             if (choice == 0) break;
             switch (choice) {
