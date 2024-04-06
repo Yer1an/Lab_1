@@ -251,7 +251,7 @@ public class Main {
     }
 
     /**
-     * The function calculates the value of number a int n-th power
+     * The function calculates the value of number a in n-th power
      * Time complexity: O(n), where n is the degree to which number is to be raised
      * The recursive algorithm iterates from n to 0, resulting in linear time complexity
      *
