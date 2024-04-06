@@ -10,6 +10,7 @@
      * @param array The set of numbers, implemented by int[] data type
      * @return The minimum element in the array
      */
+     /n
 #Problem 2
     /**
      * The method calculates average value of the array elements
