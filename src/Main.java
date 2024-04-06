@@ -97,6 +97,19 @@ public class Main {
                     System.out.println("Time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
                     break;
+                case 8:
+                    System.out.println("Type the string:");
+                    String s = sc.next();
+                    startTime = System.nanoTime();
+                    boolean ans = AllDigits(s, 0);
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000;
+                    if(ans){
+                        System.out.println("The string consist only with digits");
+                    }else{
+                        System.out.println("The string doesn't consist only with digits");
+                    }
+                    System.out.println("Time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
                 default:
                     break;
             }
@@ -230,6 +243,23 @@ public class Main {
         }
         ReverseArray(n, array, index + 1);
         System.out.print(array[index] + " ");
+    }
+
+    /**
+     * The function determines whether the string consist only with digits
+     * Time complexity: O(n), where n is the length of the given string
+     * The recursive algorithm iterates through whole string, checking each character for digit,
+     * resulting in linear complexity
+     *
+     * @param s The given string
+     * @param index The index of the index-th char in the string
+     * @return True or False. True - the string consist only with digits, false - not;
+     */
+    public static boolean AllDigits(String s,int index){
+        if(index == s.length()-1){
+            return '0' <= s.charAt(index) && s.charAt(index) <= '9';
+        }
+        return AllDigits(s,index+1) && '0' <= s.charAt(index) && s.charAt(index) <= '9';
     }
 
 }
