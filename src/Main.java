@@ -122,6 +122,19 @@ public class Main {
                     System.out.println("The binomial coefficient C("+ n +","+k+") is " + binomialCoefficient);
                     System.out.println("Time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
+                    break;
+                case 10:
+                    System.out.println("Enter the a:");
+                    int a = sc.nextInt();
+                    System.out.println("Enter the b:");
+                    int b = sc.nextInt();
+                    startTime = System.nanoTime();
+                    int gcd = GCD(a, b);
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000;
+                    System.out.println("The value of GCD(" + a + "," + b+ ") is " + gcd);
+                    System.out.println("Time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
+                    break;
                 default:
                     break;
             }
@@ -288,6 +301,21 @@ public class Main {
         if(k > n) return 0;
         if(k == n || k == 0) return 1;
         return BinomialCoeficient(k-1,n-1) + BinomialCoeficient(k, n-1);
+    }
+
+    /**
+     * The function finds the greatest common divisor of numbers a and b
+     * Time complexity: O( log(min(a,b)) )
+     * The recursive algorithm implemented by Euclidean Algorithm,
+     * resulting in logarithmic time complexity
+     *
+     * @param a First number
+     * @param b Second number
+     * @return The greatest common divisor of a and b
+     */
+    public static int GCD(int a, int b){
+        if(a== 0) return b;
+        return GCD(b%a,a);
     }
 
 }
