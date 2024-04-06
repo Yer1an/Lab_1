@@ -70,6 +70,16 @@ public class Main {
                     System.out.println();
                     break;
                 case 6:
+                    System.out.println("Enter the number:");
+                    number = sc.nextInt();
+                    System.out.println("Enter the degree to which you want to raise the number:");
+                    int degree = sc.nextInt();
+                    startTime = System.nanoTime();
+                    int answer = Power(number, degree);
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000 ;
+                    System.out.println("The number " + number + " in " + degree+"-th degree is " + answer);
+                    System.out.println("Time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
                     break;
                 case 7:
                     break;
@@ -150,7 +160,7 @@ public class Main {
     /**
      * The function calculates the factorial of the number
      * Time complexity: O(n), where n is the given number
-     * The algorithm is recursive, iterates in the range between number and 1
+     * The algorithm is recursive, iterates in the range between given number and 1
      *
      *
      * @param number The number of the factorial to be found
@@ -173,5 +183,19 @@ public class Main {
     public static int Fibonacci(int n){
         if(n <= 1) return n;
         return Fibonacci(n-1) + Fibonacci(n - 2);
+    }
+
+    /**
+     * The function calculates the value of number a int n-th power
+     * Time complexity: O(n), where n is the degree to which number is to be raised
+     * The recursive algorithm iterates from n to 0, resulting in linear time complexity
+     *
+     * @param a The number which degree is to be found
+     * @param n the degree in which the number needed to be raised
+     * @return number a in n-th degree;
+     */
+    public static int Power(int a, int n){
+        if(n == 0) return 1;
+        return a * Power(a, n-1);
     }
 }
