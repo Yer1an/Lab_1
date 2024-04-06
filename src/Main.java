@@ -7,9 +7,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("Choose the number of algorithm or enter zero to exit: ");
-            int n = sc.nextInt();
-            if (n == 0) break;
-            switch (n) {
+            int choice = sc.nextInt();
+            if (choice == 0) break;
+            switch (choice) {
                 case 1:
                     System.out.println("Enter the size of array");
                     int size = sc.nextInt();
@@ -108,6 +108,18 @@ public class Main {
                     }else{
                         System.out.println("The string doesn't consist only with digits");
                     }
+                    System.out.println("Time passed: " + estimatedTime + " milliseconds");
+                    System.out.println();
+                    break;
+                case 9:
+                    System.out.println("Enter the n:");
+                    int n = sc.nextInt();
+                    System.out.println("Enter the k:");
+                    int k = sc.nextInt();
+                    startTime = System.nanoTime();
+                    int binomialCoefficient = BinomialCoeficient(k, n);
+                    estimatedTime = (System.nanoTime() - startTime) / 1000000;
+                    System.out.println("The binomial coefficient C("+ n +","+k+") is " + binomialCoefficient);
                     System.out.println("Time passed: " + estimatedTime + " milliseconds");
                     System.out.println();
                 default:
@@ -260,6 +272,22 @@ public class Main {
             return '0' <= s.charAt(index) && s.charAt(index) <= '9';
         }
         return AllDigits(s,index+1) && '0' <= s.charAt(index) && s.charAt(index) <= '9';
+    }
+
+    /**
+     * The function returns value of binomial coefficient C(n, k)
+     * Time complexity: O(2^n), where n is the power of the expression (x+1)^n
+     * The recursive algorithm calls itself twice in one iteration, resulting in
+     * exponential time complexity
+     *
+     * @param k The power of x in the expression (x+1)^n which coefficient is to be found
+     * @param n The power of the expression (x+1)^n
+     * @return binomial coefficient C(n,k)
+     */
+    public static int BinomialCoeficient(int k, int n){
+        if(k > n) return 0;
+        if(k == n || k == 0) return 1;
+        return BinomialCoeficient(k-1,n-1) + BinomialCoeficient(k, n-1);
     }
 
 }
